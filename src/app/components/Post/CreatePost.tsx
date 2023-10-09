@@ -9,7 +9,6 @@ import Button from "@/app/utils/Button";
 import { toast } from "react-hot-toast";
 import { useMutation } from "react-query";
 import { createPost } from "@/app/api/post";
-import { object } from "yup";
 import { useProfile } from "@/app/states/profile";
 import { useAuthModal } from "@/app/states/authModal";
 import { useRouter } from "next/navigation";
