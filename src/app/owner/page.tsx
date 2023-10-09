@@ -18,7 +18,7 @@ const Owner: React.FC<OwnerProps> = () => {
   return (
     <Layout>
       <div className="mt-[6rem]  md:w-[80%] w-[90%]  mx-auto">
-        <PostLayout isLoading={isLoading} posts={posts} isEdit={true} />
+        <PostLayout isLoading={isLoading} posts={posts} />
       </div>
     </Layout>
   );
