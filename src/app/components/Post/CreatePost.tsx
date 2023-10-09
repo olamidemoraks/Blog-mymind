@@ -71,11 +71,11 @@ const CreatePost: React.FC<CreatePostProps> = () => {
     },
   });
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef?.current?.focus();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (inputRef.current) {
+  //     inputRef?.current?.focus();
+  //   }
+  // }, []);
 
   const handleSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e?.target?.files?.[0];
