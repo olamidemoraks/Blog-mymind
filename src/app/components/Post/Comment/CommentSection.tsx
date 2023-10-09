@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { GoComment, GoX } from "react-icons/go";
 import { useMutation, useQueryClient } from "react-query";
 import CommentCard from "./CommentCard";
+import { useProfile } from "@/app/states/profile";
+import { useAuthModal } from "@/app/states/authModal";
 
 type CommentSectionProps = {
   openComment: boolean;
@@ -15,6 +17,8 @@ const CommentSection: React.FC<CommentSectionProps> = ({
   setCloseComment,
   post,
 }) => {
+  const { isAuthenticated } = useProfile();
+  const { setOpen } = useAuthModal();
   const [comment, setComment] = useState("");
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation({
@@ -47,6 +51,10 @@ const CommentSection: React.FC<CommentSectionProps> = ({
 
   const handleComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isAuthenticated) {
+      setOpen();
+      return;
+    }
     if (!comment) {
       return;
     }
@@ -85,7 +93,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({
             <input
               type="text"
               className=" w-full outline-none h-full "
-              placeholder={isLoading ? "Commenting" : "Enter your comment"}
+              placeholder={isLoading ? "Commenting..." : "Enter your comment"}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
