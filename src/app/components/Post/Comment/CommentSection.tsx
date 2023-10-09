@@ -1,6 +1,5 @@
 import { commentOnPost } from "@/app/api/post";
 import { useState, useEffect } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
 import { GoComment, GoX } from "react-icons/go";
 import { useMutation, useQueryClient } from "react-query";
 import CommentCard from "./CommentCard";
