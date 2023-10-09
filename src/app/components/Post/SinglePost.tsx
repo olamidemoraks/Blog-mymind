@@ -14,6 +14,7 @@ import { likePost } from "@/app/api/post";
 import { useAuthModal } from "@/app/states/authModal";
 import CommentSection from "./Comment/CommentSection";
 import { useIsMounted } from "@/app/hooks/useMounted";
+import QuillViewer from "../Quill/QuillViewer";
 
 type SinglePostProps = {
   post: Post;
@@ -103,14 +104,16 @@ const SinglePost: React.FC<SinglePostProps> = ({ post }) => {
         </div>
       )}
 
-      {isMounted() ? (
+      {/* {isMounted() ? (
         <Quill
           readOnly={true}
           value={post.content}
           theme="bubble"
           className=" mb-4 border-none text-[1.3rem] ql-editor "
         />
-      ) : null}
+      ) : null} */}
+
+      <QuillViewer content={post.content} />
 
       <CommentSection
         openComment={openComment}

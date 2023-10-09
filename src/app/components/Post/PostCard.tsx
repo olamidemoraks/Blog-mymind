@@ -75,6 +75,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
             alt=""
             height={500}
             width={350}
+            placeholder="blur"
             className=" object-cover rounded"
           />
         ) : // <img

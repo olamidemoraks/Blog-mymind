@@ -91,8 +91,9 @@ const Login: React.FC<LoginProps> = ({ setType, setClose }) => {
             <span className=" text-red-500 pt-2 block">{errors.password}</span>
           )}
         </div>
+
         <p className=" mt-2">
-          I don&apos;t have an account?.{" "}
+          I don&apos;t have an account?{" "}
           <span
             className=" font-semibold text-theme-primary hover:underline cursor-pointer"
             onClick={() => setType("signup")}

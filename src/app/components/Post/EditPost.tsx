@@ -13,46 +13,13 @@ import { useRouter } from "next/navigation";
 import { useProfile } from "@/app/states/profile";
 import { useAuthModal } from "@/app/states/authModal";
 import { useIsMounted } from "@/app/hooks/useMounted";
-
-// quill configuration
-const modules = {
-  toolbar: [
-    [{ font: [] }],
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    ["bold", "italic", "underline", "strike"],
-    [{ color: [] }, { background: [] }],
-    [{ script: "sub" }, { script: "super" }],
-    ["blockquote", "code-block"],
-    [{ list: "ordered" }, { list: "bullet" }],
-    [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
-    ["link", "image", "video"],
-    ["clean"],
-  ],
-  clipboard: {
-    // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false,
-  },
-};
-
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-];
+import QuillEditor from "../Quill/QuillEditor";
 
 type EditPostProps = {
   post: Post;
 };
 
 const EditPost: React.FC<EditPostProps> = ({ post }) => {
-  const isMounted = useIsMounted();
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -61,7 +28,6 @@ const EditPost: React.FC<EditPostProps> = ({ post }) => {
   const { isAuthenticated } = useProfile();
   const { setOpen } = useAuthModal();
 
-  console.log(photo);
   useEffect(() => {
     if (post) {
       setTitle(post.title);
@@ -181,7 +147,7 @@ const EditPost: React.FC<EditPostProps> = ({ post }) => {
           </select>
         </div>
 
-        {isMounted() ? (
+        {/* {isMounted() ? (
           <Quill
             modules={modules}
             onChange={setContent}
@@ -191,7 +157,8 @@ const EditPost: React.FC<EditPostProps> = ({ post }) => {
             className="md:min-h-[40vh] h-[400px] flex-1 mb-4 border-none"
             placeholder="What is on your mind"
           />
-        ) : null}
+        ) : null} */}
+        <QuillEditor setContent={setContent} content={content} />
 
         <div className="w-full  mb-3 mt-6 max-lg:flex hidden  gap-3 justify-between">
           <Button
