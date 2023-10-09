@@ -12,6 +12,7 @@ import { deletePost, editPost } from "@/app/api/post";
 import { useRouter } from "next/navigation";
 import { useProfile } from "@/app/states/profile";
 import { useAuthModal } from "@/app/states/authModal";
+import { useIsMounted } from "@/app/hooks/useMounted";
 
 // quill configuration
 const modules = {
@@ -51,6 +52,7 @@ type EditPostProps = {
 };
 
 const EditPost: React.FC<EditPostProps> = ({ post }) => {
+  const isMounted = useIsMounted();
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -179,15 +181,17 @@ const EditPost: React.FC<EditPostProps> = ({ post }) => {
           </select>
         </div>
 
-        <Quill
-          modules={modules}
-          onChange={setContent}
-          value={content}
-          theme="snow"
-          formats={formats}
-          className="md:min-h-[40vh] h-[400px] flex-1 mb-4 border-none"
-          placeholder="What is on your mind"
-        />
+        {isMounted() ? (
+          <Quill
+            modules={modules}
+            onChange={setContent}
+            value={content}
+            theme="snow"
+            formats={formats}
+            className="md:min-h-[40vh] h-[400px] flex-1 mb-4 border-none"
+            placeholder="What is on your mind"
+          />
+        ) : null}
 
         <div className="w-full  mb-3 mt-6 max-lg:flex hidden  gap-3 justify-between">
           <Button

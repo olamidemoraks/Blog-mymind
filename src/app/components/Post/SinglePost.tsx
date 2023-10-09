@@ -13,12 +13,14 @@ import { useMutation, useQueryClient } from "react-query";
 import { likePost } from "@/app/api/post";
 import { useAuthModal } from "@/app/states/authModal";
 import CommentSection from "./Comment/CommentSection";
+import { useIsMounted } from "@/app/hooks/useMounted";
 
 type SinglePostProps = {
   post: Post;
 };
 
 const SinglePost: React.FC<SinglePostProps> = ({ post }) => {
+  const isMounted = useIsMounted();
   const { id, isAuthenticated } = useProfile();
   const { setOpen } = useAuthModal();
   const [openComment, setOpenComment] = useState(false);
@@ -101,12 +103,14 @@ const SinglePost: React.FC<SinglePostProps> = ({ post }) => {
         </div>
       )}
 
-      <Quill
-        readOnly={true}
-        value={post.content}
-        theme="bubble"
-        className=" mb-4 border-none text-[1.3rem] ql-editor "
-      />
+      {isMounted() ? (
+        <Quill
+          readOnly={true}
+          value={post.content}
+          theme="bubble"
+          className=" mb-4 border-none text-[1.3rem] ql-editor "
+        />
+      ) : null}
 
       <CommentSection
         openComment={openComment}
