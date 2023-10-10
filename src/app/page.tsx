@@ -10,7 +10,9 @@ import { getAllPost } from "./api/post";
 export default function Home() {
   const { isLoading, data } = useQuery({
     queryFn: async () => getAllPost({}),
-    queryKey: ["Posts"],
+    queryKey: "Posts",
+    refetchOnWindowFocus: false,
+
   });
 
   const posts: Post[] = data?.posts;

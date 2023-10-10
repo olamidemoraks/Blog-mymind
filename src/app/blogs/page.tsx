@@ -26,7 +26,7 @@ const Blogs: React.FC<pageProps> = () => {
     queryFn: async () => {
       return await getAllPost({ ...Object.fromEntries(params) });
     },
-    queryKey: ["Posts"],
+    queryKey: "Posts",
     refetchOnWindowFocus: false,
   });
 

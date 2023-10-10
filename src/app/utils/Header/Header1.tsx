@@ -55,7 +55,7 @@ const Header1: React.FC<Header1Props> = () => {
               {!isAuthenticated ? (
                 <>
                   <li
-                    className=" hover:underline cursor-pointer"
+                    className=" hover:underline cursor-pointer max-sm:hidden"
                     onClick={() => {
                       setOpen();
                       setType("login");
