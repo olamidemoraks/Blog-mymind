@@ -113,7 +113,9 @@ const SinglePost: React.FC<SinglePostProps> = ({ post }) => {
         />
       ) : null} */}
 
-      <QuillViewer content={post.content} />
+      <div className=" w-full">
+        <QuillViewer content={post.content} />
+      </div>
 
       <CommentSection
         openComment={openComment}

@@ -8,8 +8,8 @@ const BlogLoader: React.FC<BlogLoaderProps> = () => {
       {Array(7)
         .fill(1)
         .map((_, idx) => (
-          <div key={idx} className="w-full flex gap-8 ">
-            <div className="flex flex-col gap-[0.34rem]  w-full">
+          <div key={idx} className="w-full grid grid-cols-5 gap-8 ">
+            <div className="flex flex-col gap-[0.34rem] col-span-4  w-full">
               <div className="flex gap-2 items-center">
                 <div className="h-[2rem] w-[2rem] bg-gray-200 rounded-full animate-pulse" />
                 <div className=" w-[65%] h-[.6rem] bg-gray-200 animate-pulse rounded-full" />
@@ -20,7 +20,7 @@ const BlogLoader: React.FC<BlogLoaderProps> = () => {
                 <div className=" w-[40%] h-[.6rem] bg-gray-200 animate-pulse rounded-full" />
               </div>
             </div>
-            <div className="h-[50%] w-[50%] bg-gray-200 animate-pulse" />
+            <div className="h-full w-full bg-gray-200 animate-pulse col-span-1 rounded" />
           </div>
         ))}
     </div>

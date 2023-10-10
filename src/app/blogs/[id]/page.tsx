@@ -26,18 +26,17 @@ const BlogItem: React.FC<BlogItemProps> = ({ params }: any) => {
   }, [id, refetch]);
 
   const post: Post = data?.post;
-  console.log(post);
 
   let content: any;
   if (isLoading) {
     content = (
-      <div className="mt-[6rem]  md:w-[45%] w-[90%] mx-auto  ">
+      <div className="mt-[6rem] lg:w-[45%] md:w-[75%] w-[90%] mx-auto  ">
         <SingleBlogLoader />
       </div>
     );
   } else {
     content = (
-      <div className="mt-[6rem]  lg:w-[45%] md:w-[60%] w-[90%] mx-auto layout ">
+      <div className="mt-[6rem]  lg:w-[45%] md:w-[75%] w-[90%] mx-auto  ">
         <SinglePost post={post} />
       </div>
     );

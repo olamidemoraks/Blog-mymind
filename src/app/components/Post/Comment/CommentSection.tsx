@@ -65,12 +65,12 @@ const CommentSection: React.FC<CommentSectionProps> = ({
     <div
       className={`${
         openComment
-          ? "translate-x-0 opacity-100"
-          : "translate-x-[200%] opacity-0"
-      } commentSection absolute top-0 right-0 transition-all duration-200 mt-[5rem] bg-white drop-shadow-xl sm:w-[450px] w-full overflow-y-auto`}
+          ? "translate-y-0 opacity-100"
+          : "-translate-y-[200%] opacity-0"
+      } commentSection absolute top-0 right-0 transition-all duration-200 mt-[5rem] bg-white drop-shadow-xl sm:w-[450px] w-full h-full overflow-y-auto`}
     >
       <div
-        className={` h-[100vh] sm:w-[450px] w-full border-l border-l-gray-200 `}
+        className={` h-full sm:w-[450px] w-full border-l border-l-gray-200 `}
       >
         <div className="flex justify-between items-center p-3 cursor-pointer font-medium">
           <p>Comments ({post?.comments?.length})</p>

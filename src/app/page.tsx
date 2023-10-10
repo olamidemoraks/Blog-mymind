@@ -12,7 +12,6 @@ export default function Home() {
     queryFn: async () => getAllPost({}),
     queryKey: "Posts",
     refetchOnWindowFocus: false,
-
   });
 
   const posts: Post[] = data?.posts;
@@ -29,7 +28,7 @@ export default function Home() {
         <Header />
         <Hero />
         <div className="mt-[3rem] lg:w-[80%] w-[90%] mx-auto">
-          <PostLayout posts={posts} isLoading={isLoading} />
+          <PostLayout posts={posts?.slice(0, 6)} isLoading={isLoading} />
         </div>
       </main>
     </>

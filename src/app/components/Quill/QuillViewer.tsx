@@ -17,7 +17,7 @@ const QuillViewer: React.FC<QuillViewerProps> = ({ content }) => {
         readOnly={true}
         value={content}
         theme="bubble"
-        className=" mb-4 border-none text-[1.3rem] ql-editor "
+        className=" mb-4 border-none text-[1.3rem] ql-editor w-full "
       />
     </>
   );

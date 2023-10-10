@@ -108,7 +108,7 @@ const Header1: React.FC<Header1Props> = () => {
                 <MenuItem
                   onClick={() => {
                     handleClose();
-                    router.push("/write");
+                    router.push("/create");
                   }}
                   sx={{
                     ":hover": {
