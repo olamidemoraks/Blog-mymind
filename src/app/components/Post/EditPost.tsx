@@ -123,13 +123,12 @@ const EditPost: React.FC<EditPostProps> = ({ post }) => {
     <div className="mt-[7rem] lg:w-[80%] w-[90%] mx-auto flex lg:flex-row gap-6 flex-col-reverse mb-6">
       <div className=" lg:w-[65%] w-full flex flex-col gap-4 ">
         <div className="flex flex-col gap-3">
-          <input
-            type="text"
+          <textarea
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Enter Title"
             className=" placeholder:text-gray-300 text-3xl font-bold outline-none p-3 "
-          />
+          ></textarea>
 
           <select
             className="py-2 px-3 outline-none bg-gray-100 text-sm w-fit rounded-full"
